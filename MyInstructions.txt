@@ -1,4 +1,4 @@
-mutation(email:$email,password:$password){
+mutation(email:String!,password:String!){
     loginUser(
         input:{
             email:$email
@@ -14,3 +14,29 @@ mutation(email:$email,password:$password){
         }
     }
 }
+
+in the Variable write this code:
+
+{
+    "email": "yourentered email in the database that has been registered but not loged in"
+    "password":"your desired password"
+}
+
+
+
+{
+    me{
+        id
+        name
+        email
+    }
+}
+
+in the header you should collect the token (the last one you have requested in login)
+Header write these codes :
+
+{
+    "Accept":"application\json" you could ignore this i couldn't understand why if yes tell me
+    "Authorization":"Bearer the_token"
+}
+
