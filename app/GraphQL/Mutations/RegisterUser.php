@@ -22,7 +22,6 @@ final readonly class RegisterUser
             ],
             messages:Fa::getAllErrorMessage(),
             );
-
         if ($validator->fails()) {
             return [
                 "success" => false ,

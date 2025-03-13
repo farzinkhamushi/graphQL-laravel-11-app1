@@ -1,6 +1,7 @@
-mutation(email:String!,password:String!){
-    loginUser(
+mutation($name:String!$email:String!,$password:String!){
+    createUser(
         input:{
+          	name:$name
             email:$email
             password:$password
         }
@@ -10,7 +11,33 @@ mutation(email:String!,password:String!){
         user{
             id
             name
-            token
+        }
+    }
+}
+
+Variable:
+
+{
+    "name":"your desired name",
+    "email":"your desired email",
+    "password":"your desired password"
+}
+
+
+mutation($email:String!,$password:String!){
+    loginUser(
+        input:{
+            email:$email
+            password:$password
+        }
+    ){
+        success
+        message
+        token
+        user{
+            id
+            name
+          	email
         }
     }
 }
@@ -36,7 +63,16 @@ in the header you should collect the token (the last one you have requested in l
 Header write these codes :
 
 {
-    "Accept":"application\json" you could ignore this i couldn't understand why if yes tell me
-    "Authorization":"Bearer the_token"
+    you could ignore this i couldn't understand why if yes tell me
+    "Accept":"application/json", or
+    "Accept":"application\\json", or without this line
+    "Authorization":"Bearer the_token",
 }
+
+finally
+{
+    "Accept":"application\\json",
+    "Authorization":"Bearer the_token",
+}
+
 
