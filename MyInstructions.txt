@@ -1,0 +1,16 @@
+mutation(email:$email,password:$password){
+    loginUser(
+        input:{
+            email:$email
+            password:$password
+        }
+    ){
+        success
+        message
+        user{
+            id
+            name
+            token
+        }
+    }
+}
